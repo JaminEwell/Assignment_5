@@ -1,0 +1,33 @@
+type Query {
+  about: String!
+  productList: [Product!]!
+}
+
+type Mutation {
+  setAboutMessage(message: String!): String
+}
+
+enum Category {
+    Shirts
+    Jeans
+    Jackets
+    Sweaters
+    Accessories
+}
+
+type Product {
+    id: Int!
+    name: String
+    price: Float
+    category: Category!
+    image: String
+}
+
+input ProductInputs {
+  Category: CategoryList
+  Name: String!
+  Price: Float
+  Image: String
+}
+
+scalar GraphQLDate
