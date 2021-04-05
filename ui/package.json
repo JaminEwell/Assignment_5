@@ -1,13 +1,17 @@
 {
   "name": "assignment5-ui",
   "version": "1.0.0",
-  "description": "assignment4",
+  "description": "assignment5",
   "main": "index.js",
   "scripts": {
+    "#start": "UI server. HMR is enabled in dev mode.",
     "start": "nodemon -w uiserver.js -w .env uiserver.js",
+    "#lint": "Runs ESLint on all relevant files",
     "lint": "eslint . --ext js,jsx --ignore-pattern public",
-    "watch": "babel src --out-dir public --watch --verbose",
-    "compile": "babel src --out-dir public"
+    "#compile": "Generates JS bundles for production. Use with start.",
+    "compile": "webpack --mode production",
+    "#watch": "Compile, and recompile on any changes.",
+    "watch": "webpack --watch"
   },
   "author": "jamin ewell",
   "license": "ISC",
@@ -27,7 +31,7 @@
     "express": "^4.17.1",
     "http-proxy-middleware": "^1.0.6",
     "webpack": "^5.30.0",
-    "webpack-cli": "^4.6.0",
-    "whatwg-fetch": "^3.6.2"
-  }
+    "webpack-cli": "^4.6.0"
+  },
+  "devDependencies": {}
 }
