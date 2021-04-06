@@ -8,7 +8,7 @@ class ProductAdd extends React.Component {
   }
 
   handlePriceChange = () => {
-    this.setState({ price: document.forms.productAdd.price.value })
+    this.setState({ price: parseFloat(document.forms.productAdd.price.value) })
   }
 
   handleSubmit = (e) => {
@@ -18,7 +18,7 @@ class ProductAdd extends React.Component {
     let priceNum = form.price.value.replace(/\$/g, '')
     const product = {
       Name: form.name.value,
-      Price: priceNum,
+      Price: parseFloat(priceNum),
       Category: form.category.value,
       Image: form.imageurl.value,
     }
