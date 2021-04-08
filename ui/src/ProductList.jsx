@@ -1,19 +1,20 @@
-import React from 'react'
+/* eslint-disable import/extensions */
+import React from 'react';
 
-import ProductTable from './ProductTable.jsx'
-import ProductAdd from './ProductAdd.jsx'
-import graphQLFetch from './graphQLFetch.js'
+import ProductTable from './ProductTable.jsx';
+import ProductAdd from './ProductAdd.jsx';
+import graphQLFetch from './graphQLFetch.js';
 
 class ProductList extends React.Component {
   constructor() {
-    super()
-    this.state = { products: [] }
-    this.createProduct = this.createProduct.bind(this)
-    this.deleteProduct = this.deleteProduct.bind(this)
+    super();
+    this.state = { products: [] };
+    this.createProduct = this.createProduct.bind(this);
+    this.deleteProduct = this.deleteProduct.bind(this);
   }
 
   componentDidMount() {
-    this.loadData()
+    this.loadData();
   }
 
   async loadData() {
@@ -21,11 +22,11 @@ class ProductList extends React.Component {
       productList {
         id Category Name Price Image
       }
-    }`
+    }`;
 
-    const data = await graphQLFetch(query)
+    const data = await graphQLFetch(query);
     if (data) {
-      this.setState({ products: data.productList })
+      this.setState({ products: data.productList });
     }
   }
 
@@ -34,39 +35,39 @@ class ProductList extends React.Component {
       productAdd(product: $product) {
         id 
       }
-    }`
+    }`;
 
-    const data = await graphQLFetch(query, { product })
+    const data = await graphQLFetch(query, { product });
     if (data) {
-      this.loadData()
+      this.loadData();
     }
   }
 
   async deleteProduct(id) {
     const query = `mutation productDelete($id: Int!) {
       productDelete(id: $id)
-    }`
+    }`;
 
-    const data = await graphQLFetch(query, { id })
+    const data = await graphQLFetch(query, { id });
 
     if (!data.productDelete) {
-      alert('Product deleted unsuccessfully') // eslint-disable-line no-alert
-      return false
+      alert('Product deleted unsuccessfully'); // eslint-disable-line no-alert
+      return false;
     }
-    alert('Product deleted successfully') // eslint-disable-line no-alert
-    this.loadData()
-    return true
+    alert('Product deleted successfully'); // eslint-disable-line no-alert
+    this.loadData();
+    return true;
   }
 
   render() {
-    const { products } = this.state
+    const { products } = this.state;
     return (
       <div style={{ color: 'white' }}>
         <ProductTable products={products} deleteProduct={this.deleteProduct} />
         <ProductAdd createProduct={this.createProduct} />
       </div>
-    )
+    );
   }
 }
 
-export default ProductList
+export default ProductList;

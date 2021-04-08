@@ -1,20 +1,22 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import graphQLFetch from './graphQLFetch'
-import NumInput from './NumInput.jsx'
-import TextInput from './TextInput.jsx'
+/* eslint-disable react/sort-comp */
+/* eslint-disable import/extensions */
+import React from 'react';
+import { Link } from 'react-router-dom';
+import graphQLFetch from './graphQLFetch';
+import NumInput from './NumInput.jsx';
+import TextInput from './TextInput.jsx';
 
 class ProductEdit extends React.Component {
   constructor() {
-    super()
+    super();
     this.state = {
       product: {},
-    }
-    this.handleSubmit = this.handleSubmit.bind(this)
+    };
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
-    this.loadData()
+    this.loadData();
   }
 
   componentDidUpdate(prevProps) {
@@ -22,28 +24,28 @@ class ProductEdit extends React.Component {
       match: {
         params: { id: prevId },
       },
-    } = prevProps
+    } = prevProps;
     const {
       match: {
         params: { id },
       },
-    } = this.props
+    } = this.props;
     if (id !== prevId) {
-      this.loadData()
+      this.loadData();
     }
   }
 
   onChange = (event, naturalValue) => {
-    const { name, value: textValue } = event.target
-    const value = naturalValue === undefined ? textValue : naturalValue
+    const { name, value: textValue } = event.target;
+    const value = naturalValue === undefined ? textValue : naturalValue;
     this.setState((prevState) => ({
       product: { ...prevState.product, [name]: value },
-    }))
+    }));
   }
 
   async handleSubmit(e) {
-    e.preventDefault()
-    const { product } = this.state
+    e.preventDefault();
+    const { product } = this.state;
 
     const query = `mutation productUpdate(
       $id: Int!
@@ -55,13 +57,13 @@ class ProductEdit extends React.Component {
       ) {
         id Category Name Price Image
       }
-    }`
-    const { id, ...modify } = product
-    const data = await graphQLFetch(query, { modify, id })
+    }`;
+    const { id, ...modify } = product;
+    const data = await graphQLFetch(query, { modify, id });
 
     if (data) {
-      this.setState({ product: data.productUpdate })
-      alert('Update Product Successfully') // eslint-disable-line no-alert
+      this.setState({ product: data.productUpdate });
+      alert('Update Product Successfully'); // eslint-disable-line no-alert
     }
   }
 
@@ -70,20 +72,22 @@ class ProductEdit extends React.Component {
       Product(id: $id) {
         id Name Price Category Image
       }
-    }`
+    }`;
     const {
       match: {
         params: { id },
       },
-    } = this.props
-    const data = await graphQLFetch(query, { id })
-    this.setState({ product: data.Product })
+    } = this.props;
+    const data = await graphQLFetch(query, { id });
+    this.setState({ product: data.Product });
   }
 
   render() {
     const {
-      product: { Name, Price, Image, id, Category },
-    } = this.state
+      product: {
+        Name, Price, Image, id, Category,
+      },
+    } = this.state;
     return id ? (
       <div style={{ color: 'white' }}>
         <form onSubmit={this.handleSubmit}>
@@ -135,8 +139,8 @@ class ProductEdit extends React.Component {
       </div>
     ) : (
       <h1>Loading Data...</h1>
-    )
+    );
   }
 }
 
-export default ProductEdit
+export default ProductEdit;

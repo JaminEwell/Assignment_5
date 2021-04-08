@@ -1,3 +1,4 @@
+/* eslint-disable import/extensions */
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
@@ -8,7 +9,7 @@ function NavBar() {
     <nav>
       <NavLink exact to="/">Home</NavLink>
       {' | '}
-      <NavLink to="/issues">Product List</NavLink>
+      <NavLink to="/edit">Edit</NavLink>
       {' | '}
       <NavLink to="/report">Report</NavLink>
     </nav>

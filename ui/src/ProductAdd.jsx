@@ -1,34 +1,36 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+/* eslint-disable react/no-unused-state */
+/* eslint-disable jsx-a11y/control-has-associated-label */
+import React from 'react';
+import PropTypes from 'prop-types';
 
 class ProductAdd extends React.Component {
   constructor() {
-    super()
-    this.state = { price: '$' }
+    super();
+    this.state = { price: '$' };
   }
 
   handlePriceChange = () => {
-    this.setState({ price: parseFloat(document.forms.productAdd.price.value) })
+    this.setState({ price: document.forms.productAdd.price.value });
   }
 
   handleSubmit = (e) => {
-    e.preventDefault()
-    const form = document.forms.productAdd
+    e.preventDefault();
+    const form = document.forms.productAdd;
 
-    let priceNum = form.price.value.replace(/\$/g, '')
+    const priceNum = form.price.value.replace(/\$/g, '');
     const product = {
       Name: form.name.value,
-      Price: parseFloat(priceNum),
+      Price: priceNum,
       Category: form.category.value,
       Image: form.imageurl.value,
-    }
+    };
 
-    const { createProduct } = this.props
-    this.setState({ price: '$' })
-    form.name.value = ''
-    form.category.value = ''
-    form.imageurl.value = ''
-    createProduct(product)
+    const { createProduct } = this.props;
+    this.setState({ price: '$' });
+    form.name.value = '';
+    form.category.value = '';
+    form.imageurl.value = '';
+    createProduct(product);
   }
 
   render() {
@@ -39,9 +41,11 @@ class ProductAdd extends React.Component {
         <form name="productAdd" onSubmit={this.handleSubmit}>
           <div className="formContainer">
             <div className="formCol">
-              Category <br />
+              Category
+              {' '}
+              <br />
               <select name="category">
-                <option value=""></option>
+                <option value="" />
                 <option value="Shirts">Shirts</option>
                 <option value="Jeans">Jeans</option>
                 <option value="Jackets"> Jackets</option>
@@ -49,15 +53,21 @@ class ProductAdd extends React.Component {
                 <option value="Accessories">Accessories</option>
               </select>
               <br />
-              Product Name <br />
+              Product Name
+              {' '}
+              <br />
               <input type="text" name="name" />
               <br />
             </div>
             <div className="formCol">
-              Price Per Unit <br />
-              <input type="text" name="price" value={this.state.price} onChange={this.handlePriceChange} />
+              Price Per Unit
+              {' '}
               <br />
-              Image URL <br />
+              <input type="text" name="price" value={parseFloat(this.price)} onChange={this.handlePriceChange} />
+              <br />
+              Image URL
+              {' '}
+              <br />
               <input type="text" name="imageurl" />
               <br />
             </div>
@@ -65,12 +75,12 @@ class ProductAdd extends React.Component {
           <input type="submit" value="Add Product" className="submitButton" />
         </form>
       </div>
-    )
+    );
   }
 }
 
-export default ProductAdd
+export default ProductAdd;
 
 ProductAdd.propTypes = {
   createProduct: PropTypes.func.isRequired,
-}
+};

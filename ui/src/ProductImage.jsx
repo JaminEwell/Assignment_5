@@ -1,15 +1,16 @@
-import React from 'react'
+/* eslint-disable import/extensions */
+import React from 'react';
 
-import graphQLFetch from './graphQLFetch.js'
+import graphQLFetch from './graphQLFetch.js';
 
 class ProductImage extends React.Component {
   constructor() {
-    super()
-    this.state = { product: {} }
+    super();
+    this.state = { product: {} };
   }
 
   componentDidMount() {
-    this.loadData()
+    this.loadData();
   }
 
   async loadData() {
@@ -17,24 +18,24 @@ class ProductImage extends React.Component {
       Product(id: $id) {
         id Category Name Price Image
       }
-    }`
+    }`;
 
     const {
       match: {
         params: { id },
       },
-    } = this.props
+    } = this.props;
 
-    const data = await graphQLFetch(query, { id })
+    const data = await graphQLFetch(query, { id });
     if (data) {
-      this.setState({ product: data.Product })
-    } else this.setState({ product: null })
+      this.setState({ product: data.Product });
+    } else this.setState({ product: null });
   }
 
   render() {
-    const { product } = this.state
-    return <img style={{maxWidth:'100vw'}} src={product.Image} alt={product.Name} />
+    const { product } = this.state;
+    return <img style={{ maxWidth: '100vw' }} src={product.Image} alt={product.Name} />;
   }
 }
 
-export default ProductImage
+export default ProductImage;

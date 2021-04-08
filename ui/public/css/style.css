@@ -1,6 +1,6 @@
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #09182f;
+    background-color: #879190;
   }
   
   .container {
@@ -11,7 +11,7 @@ body {
   }
   
   .content {
-    color: white;
+    color: black;
     text-align: center;
   }
   
@@ -35,11 +35,7 @@ body {
     overflow: hidden;
   }
   
-  a {
-    color: #bfc0c0;
-    text-decoration: none;
-    letter-spacing: 1px;
-  }
+ 
   
   #arrow-hover {
     width: 15px;
@@ -52,14 +48,18 @@ body {
     margin: 0;
     padding: 0 5px;
   }
+
+  a {
+    color: #bfc0c0;
+    text-decoration: none;
+    letter-spacing: 1px;
+  }
   
   a#button-1:hover img {
     width: 15px;
     opacity: 1;
     transform: translateX(50px);
   }
-  
-  /* Assignment 2 */
   
   .table-col {
     width: 200px;
@@ -75,11 +75,12 @@ body {
     width: 300px;
   }
   
+  
+  .submitButton {
+    width: 120px;
+  }
+
   input,
   select {
     width: 200px;
-  }
-  
-  .submitButton {
-    width: 125px;
   }

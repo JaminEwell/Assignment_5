@@ -1,11 +1,12 @@
-import React from 'react'
-import { Switch, Route, Redirect } from 'react-router-dom'
+/* eslint-disable import/extensions */
+import React from 'react';
+import { Switch, Route, Redirect } from 'react-router-dom';
 
-import ProductList from './ProductList.jsx'
-import ProductEdit from './ProductEdit.jsx'
-import ProductImage from './ProductImage.jsx'
+import ProductList from './ProductList.jsx';
+import ProductEdit from './ProductEdit.jsx';
+import ProductImage from './ProductImage.jsx';
 
-const NotFound = () => <h1 style={{ color: 'white' }}>Page Not Found</h1>
+const NotFound = () => <h1 style={{ color: 'white' }}>Page Not Found</h1>;
 
 export default function Contents() {
   return (
@@ -16,5 +17,5 @@ export default function Contents() {
       <Route path="/edit/:id" component={ProductEdit} />
       <Route component={NotFound} />
     </Switch>
-  )
+  );
 }
