@@ -9,7 +9,7 @@ function NavBar() {
     <nav>
       <NavLink exact to="/">Home</NavLink>
       {' | '}
-      <NavLink to="/edit">Edit</NavLink>
+      <NavLink to="/products">Product List</NavLink>
       {' | '}
       <NavLink to="/report">Report</NavLink>
     </nav>
