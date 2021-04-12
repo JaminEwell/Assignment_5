@@ -1,5 +1,4 @@
 /* eslint-disable import/extensions */
-import 'babel-polyfill';
 import 'whatwg-fetch';
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -14,7 +13,3 @@ const element = (
 );
 
 ReactDOM.render(element, document.getElementById('contents'));
-
-if (module.hot) {
-  module.hot.accept();
-}

@@ -89,7 +89,7 @@ class ProductEdit extends React.Component {
       },
     } = this.state;
     return id ? (
-      <div style={{ color: 'white' }}>
+      <div style={{ color: 'black' }}>
         <form onSubmit={this.handleSubmit}>
           <h1>{`Editing Product ID: ${id}`}</h1>
           <table>

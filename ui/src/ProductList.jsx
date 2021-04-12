@@ -62,7 +62,7 @@ class ProductList extends React.Component {
   render() {
     const { products } = this.state;
     return (
-      <div style={{ color: 'white' }}>
+      <div style={{ color: 'black' }}>
         <ProductTable products={products} deleteProduct={this.deleteProduct} />
         <ProductAdd createProduct={this.createProduct} />
       </div>

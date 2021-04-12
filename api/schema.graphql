@@ -3,7 +3,7 @@ type Product {
   id: Int!
   Category: CategoryList!
   Name: String!
-  Price: Float
+  Price: String!
   Image: String
 }
 
@@ -18,14 +18,14 @@ enum CategoryList {
 input ProductInputs {
   Category: CategoryList
   Name: String!
-  Price: Float
+  Price: String!
   Image: String
 }
 
 input ProductUpdateInputs {
   Category: CategoryList
   Name: String!
-  Price: Float
+  Price: String!
   Image: String
 }
 

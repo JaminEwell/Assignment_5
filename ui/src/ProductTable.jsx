@@ -5,8 +5,8 @@ import ProductRow from './ProductRow.jsx';
 
 const ProductTable = ({ products, deleteProduct }) => (
   <div>
-    <h1>My Company Inventory</h1>
-    <p>Showing all available products</p>
+    <h1>Company Inventory</h1>
+    <p>Showing available products</p>
     <hr />
     <table>
       <thead>

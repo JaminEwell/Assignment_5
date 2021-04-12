@@ -1,4 +1,4 @@
-/* eslint-disable react/no-unused-state */
+/* eslint-disable react/destructuring-assignment */
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -63,7 +63,7 @@ class ProductAdd extends React.Component {
               Price Per Unit
               {' '}
               <br />
-              <input type="text" name="price" value={parseFloat(this.price)} onChange={this.handlePriceChange} />
+              <input type="text" name="price" value={this.state.price} onChange={this.handlePriceChange} />
               <br />
               Image URL
               {' '}

@@ -6,7 +6,7 @@ import ProductList from './ProductList.jsx';
 import ProductEdit from './ProductEdit.jsx';
 import ProductImage from './ProductImage.jsx';
 
-const NotFound = () => <h1 style={{ color: 'white' }}>Page Not Found</h1>;
+const NotFound = () => <h1 style={{ color: 'black' }}>Page Not Found</h1>;
 
 export default function Contents() {
   return (
